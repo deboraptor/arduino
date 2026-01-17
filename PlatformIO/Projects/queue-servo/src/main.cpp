@@ -1,18 +1,22 @@
-#include <Arduino.h>
+#include "Servo.h"
 
-// put function declarations here:
-int myFunction(int, int);
+// Create the servo object
+Servo myservo;
 
+// Setup section to run once
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  myservo.attach(9); // attach the servo to our servo object
+  myservo.write(90); // stop the motor
 }
 
+// Loop to keep the motor turning!
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  myservo.write(45); // rotate the motor counter-clockwise
+  delay(1000); // keep rotating for 5 seconds (5000 milliseconds)
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  myservo.write(90); // stop the motor
+  delay(1000); // stay stopped
+
+  myservo.write(135); // rotate the motor clockwise
+  delay(1000); // keep rotating 😀
 }
